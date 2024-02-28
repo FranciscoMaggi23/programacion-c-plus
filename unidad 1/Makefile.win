@@ -1,0 +1,40 @@
+# Project: Proyecto 2
+# Makefile created by Dev-C++ 5.5.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o copiaejercicio11.o copiaejercicio12.o funcionprimo.o funcionprimo2.o
+LINKOBJ  = main.o copiaejercicio11.o copiaejercicio12.o funcionprimo.o funcionprimo2.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.7.1/include/c++"
+BIN      = "Proyecto 2.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+copiaejercicio11.o: copiaejercicio11
+	$(CPP) -c copiaejercicio11 -o copiaejercicio11.o $(CXXFLAGS)
+
+copiaejercicio12.o: copiaejercicio12.cpp
+	$(CPP) -c copiaejercicio12.cpp -o copiaejercicio12.o $(CXXFLAGS)
+
+funcionprimo.o: funcionprimo.cpp
+	$(CPP) -c funcionprimo.cpp -o funcionprimo.o $(CXXFLAGS)
+
+funcionprimo2.o: funcionprimo2.cpp
+	$(CPP) -c funcionprimo2.cpp -o funcionprimo2.o $(CXXFLAGS)
